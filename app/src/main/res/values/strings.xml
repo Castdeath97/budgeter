@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Budgeter</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="login_button_text">Log In</string>
+    <string name="login_email_hint">Email Address</string>
+    <string name="login_password_hint">User Password</string>
 </resources>
