@@ -5,4 +5,10 @@
     <string name="login_button_text">Log In</string>
     <string name="login_email_hint">Email Address</string>
     <string name="login_password_hint">User Password</string>
+    <string name="about_title">About</string>
+    <string name="home_title">Home</string>
+    <string name="reports_title">Reports</string>
+    <string name="articles_title">Articles</string>
+    <string name="budget_title">Budget</string>
+    <string name="contacts_title">Contacts</string>
 </resources>
