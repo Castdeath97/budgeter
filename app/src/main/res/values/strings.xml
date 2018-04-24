@@ -11,5 +11,37 @@
     <string name="articles_title">Articles</string>
     <string name="budget_title">Budget</string>
     <string name="contacts_title">Contacts</string>
-    <string name = "settings_title">Settings</string>
+    <string name ="settings_title">Settings</string>
+    <string name="about_content">Budgeter is an App developed as an CSC3123 assignment
+                                 Budgeter is a budgeting app developed to offer help
+                                 to Students to help them start managing money wisely</string>
+    <string name="contacts_introduction">This page lists useful webpages and contacts to help you in getting started with managing money.</string>
+
+
+    <!-- contacts content -->
+
+    <string name="contacts_undergrad_fees_website_heading">Undergrad Finance</string>
+    <string name="contacts_support_website_heading">Financial Support Team</string>
+    <string name="contacts_acco_website_heading">Accommodation Help</string>
+    <string name="contacts_postgrad_fees_website_heading">Postgraduate Finance</string>
+    <string name="contacts_financal_support_website_heading">Student Financial Support Fund</string>
+    <string name="contacts_financal_assist_website_heading">Student Assist Fund</string>
+
+
+    <string name="contacts_undergrad_fees_website_content">http://www.ncl.ac.uk/undergraduate
+        /finance/</string>
+
+    <string name="contacts_support_website_content">http://www.ncl.ac.uk/students/wellbeing
+        /finance/</string>
+
+    <string name="contacts_acco_website_content">http://www.ncl.ac.uk/accommodation/</string>
+    <string name="contacts_postgrad_fees_website_content">http://www.ncl.ac.uk/postgraduate
+        /finance/</string>
+
+    <string name="contacts_financal_support_content">http://www.ncl.ac.uk/students/wellbeing
+        /finance/hardship/studentfinancialsupportfund/overview.htm</string>
+
+
+    <string name="contacts_financal_assist_content">http://www.ncl.ac.uk/students/wellbeing
+        /finance/hardship/financialassistancefund/overview.htm</string>
 </resources>
