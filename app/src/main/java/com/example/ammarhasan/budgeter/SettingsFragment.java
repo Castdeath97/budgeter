@@ -11,17 +11,17 @@ import android.view.ViewGroup;
 
 /**
  * @author Ammar Hasan 150454388 April 2018
- * Class Purpose: This class contains the Contacts page
+ * Class Purpose: This class contains the Settings page
  * fragment of the navigation activity funtionality
  */
-public class ContactsFragment extends Fragment {
+public class SettingsFragment extends Fragment {
 
     @Nullable
     @Override   // connects to layout file
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return  inflater.inflate(R.layout.fragment_contacts, null);
+        return  inflater.inflate(R.layout.fragment_settings, null);
     }
 
     @Override

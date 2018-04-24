@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 /**
  * @author Ammar Hasan 150454388 April 2018
- * Class Purpose: This class contains the Home page
+ * Class Purpose: This class contains the Budget page
  * fragment of the navigation activity funtionality
  */
 public class BudgetFragment extends Fragment {

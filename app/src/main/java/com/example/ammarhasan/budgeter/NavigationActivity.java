@@ -12,6 +12,11 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+/**
+ * @author Ammar Hasan 15045438 April 2018
+ * Class Purpose: This class handles the navigation between fragments
+ * through the app drawer
+ */
 public class NavigationActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
@@ -29,7 +34,7 @@ public class NavigationActivity extends AppCompatActivity {
         // set menu button as up button
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
-        actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
+        actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_24dp);
 
 
         // find the drawer and the navigation views
@@ -84,6 +89,10 @@ public class NavigationActivity extends AppCompatActivity {
 
                             case R.id.nav_articles:
                                 fragment = new ArticleFragment();
+                                break;
+
+                            case R.id.nav_settings:
+                                fragment = new SettingsFragment();
                                 break;
                         }
 
