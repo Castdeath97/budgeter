@@ -12,7 +12,8 @@ import android.view.ViewGroup;
 /**
  * @author Ammar Hasan 150454388 April 2018
  * Class Purpose: This class contains the Article page
- * fragment of the navigation activity funtionality
+ * fragment of the navigation activity funtionality, handles loading
+ * of new articles using database
  */
 public class ArticleFragment extends Fragment {
 

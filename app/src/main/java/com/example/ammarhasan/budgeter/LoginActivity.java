@@ -15,11 +15,17 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * @author Ammar Hasan 150454388 April 2018
  * Class Purpose: This class contains the user login
- * activity functionality
+ * activity functionality, handles logins and creation of user profiles
  */
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,6 +37,9 @@ public class LoginActivity extends AppCompatActivity {
     // Firebase auth object and listener
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mFirebaseAutListner;
+
+    // reference to interact with firebase d
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onStart(){
@@ -58,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 // on state change check if a user exists
                 if(firebaseAuth.getCurrentUser() != null){
-                    // go to welcome screen via intent
+                    // go to home screen via intent
                     startActivity(
                             new Intent(LoginActivity.this, NavigationActivity.class));
                 }
@@ -72,6 +81,9 @@ public class LoginActivity extends AppCompatActivity {
                 signIn(); // sign in via method
             }
         });
+
+        // get firebase database reference and Authentication object
+        databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
     // signing in method called by button
@@ -95,6 +107,41 @@ public class LoginActivity extends AppCompatActivity {
                             if (!task.isSuccessful()) {
                                 Toast.makeText(LoginActivity.this, "Wrong combination",
                                         Toast.LENGTH_LONG).show();
+                            }
+
+                            else {
+                                // else check if a profile exists for the user, if not create one
+
+                                // get current user
+                                final FirebaseUser user = mFirebaseAuth.getCurrentUser();
+
+                                // Attach a listener to read the data
+                                databaseReference.child(user.getUid())
+                                        .addListenerForSingleValueEvent(
+                                new ValueEventListener() {
+
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        User userInfo = dataSnapshot.getValue(User.class);
+
+                                        // null make a new one
+                                        if (userInfo == null)
+                                        {
+                                            userInfo = new User();
+
+                                            // update database using user id
+                                            databaseReference.child
+                                                    (user.getUid()).setValue(userInfo);
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                        Toast.makeText(LoginActivity.this,
+                                                "The read failed: " + databaseError.getCode(),
+                                                Toast.LENGTH_LONG).show();
+                                    }
+                                });
                             }
                         }
                     });

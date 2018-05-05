@@ -9,9 +9,9 @@
     <string name="home_title">Home</string>
     <string name="reports_title">Reports</string>
     <string name="articles_title">Articles</string>
-    <string name="budget_title">Budget</string>
+    <string name="budget_title">Budgets</string>
     <string name="contacts_title">Contacts</string>
-    <string name ="settings_title">Settings</string>
+    <string name="settings_title">Settings</string>
     <string name="about_content">Budgeter is an App developed as an CSC3123 assignment
                                  Budgeter is a budgeting app developed to offer help
                                  to Students to help them start managing money wisely</string>
@@ -44,4 +44,14 @@
 
     <string name="contacts_financal_assist_content">http://www.ncl.ac.uk/students/wellbeing
         /finance/hardship/financialassistancefund/overview.htm</string>
+
+
+
+    <string name="home_transaction_button_title">Add Transaction</string>
+    <string name="record_transaction_button_text">Record Transaction</string>
+    <string name="record_transaction_activity_name">Record a Transaction</string>
+    <string name="record_transcation_switch_debit_text">Debit</string>
+    <string name="record_transcation_switch_credit_text">Credit</string>
+    <string name="budget_button_new">Add a new Budget</string>
+
 </resources>

@@ -19,7 +19,8 @@
         </activity>
         <activity
             android:name=".NavigationActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".RecordTransactionActivity"></activity>
     </application>
 
 </manifest>
