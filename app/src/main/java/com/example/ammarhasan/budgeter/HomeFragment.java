@@ -1,5 +1,7 @@
 package com.example.ammarhasan.budgeter;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,7 +20,14 @@ import android.widget.Button;
  */
 public class HomeFragment extends Fragment {
 
-    private Button mAddTransBtn;
+    private Activity mActivity;
+
+    // used to keep activity to avoid callback issues
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mActivity = (Activity) context;
+    }
 
     @Nullable
     @Override   // connects to layout file
@@ -34,7 +43,7 @@ public class HomeFragment extends Fragment {
 
         // used to do activity stuff, use view to find stuff and use getActivity to get context
 
-        mAddTransBtn = view.findViewById(R.id.button_add_transaction);
+        Button mAddTransBtn = view.findViewById(R.id.button_add_transaction);
 
         // add listener to add transaction button
         mAddTransBtn.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +60,6 @@ public class HomeFragment extends Fragment {
      */
     public void addTransaction() {
         // change activity when button is clicked (use getActivity since this a fragment)
-        startActivity(new Intent(getActivity(), RecordTransactionActivity.class));
+        startActivity(new Intent(mActivity, RecordTransactionActivity.class));
     }
 }

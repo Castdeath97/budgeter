@@ -138,7 +138,8 @@ public class LoginActivity extends AppCompatActivity {
                                     @Override
                                     public void onCancelled(DatabaseError databaseError) {
                                         Toast.makeText(LoginActivity.this,
-                                                "The read failed: " + databaseError.getCode(),
+                                                getResources().getString(R.string.db_error_text)
+                                                        + databaseError.getCode(),
                                                 Toast.LENGTH_LONG).show();
                                     }
                                 });

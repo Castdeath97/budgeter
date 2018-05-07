@@ -20,7 +20,9 @@
         <activity
             android:name=".NavigationActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".RecordTransactionActivity"></activity>
+        <activity android:name=".RecordTransactionActivity" />
+        <activity android:name=".NewBudgetActivity" />
+        <activity android:name=".EditBudgetActivity"></activity>
     </application>
 
 </manifest>
