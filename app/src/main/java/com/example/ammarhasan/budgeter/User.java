@@ -15,13 +15,13 @@ public class User {
     private double projectedSpend;
 
     private static final String NOT_ENOUGH_BANK = "Not enough bank for budget";
+    private static final String NOT_ENOUGH_ALLO = "Amount spent is too high for allocation!";
     private static final String NAME_USED = "Name was used";
 
 
-    // #TODO: Update projected Spent method
-    // #TODO: Check projected Spent method
-    // #TODO: Remove findbudget, no more user interaction with budget #
     // #TODO: Check Savings method
+    // #TODO: Add transactions (User can interact with these)
+    // #TODO: Do checks
 
     /**
      * User default constructor
@@ -31,6 +31,7 @@ public class User {
         projectedSpend = 0.0;
         budgets = new ArrayList<Budget>();
     }
+
 
     /**
      * Finds a given budget
@@ -46,6 +47,14 @@ public class User {
         return null; // not found
     }
 
+    public void carryDebitTransaction(Budget budget, double amount){
+
+    }
+
+    public void resetBudget(Budget b){
+
+    }
+
     /**
      * Adds a budget to user budgets
      * @param budget user new budget
@@ -55,7 +64,7 @@ public class User {
 
         // error checking
 
-        if(bankAmount - (budget.getAllocated() + projectedSpend) < 0){
+        if(bankAmount - (budget.getRemaining() + projectedSpend) < 0){
             throw new IllegalArgumentException(NOT_ENOUGH_BANK);
         }
 
@@ -74,7 +83,7 @@ public class User {
      * @param budgetName budget name to update
      * @param newBudgetName new budget name
      * @param newAllocated new allocated amount
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException thrown when not enough bank exists or name is used
      */
     public void updateBudget(String budgetName, String newBudgetName,
                              double newAllocated) throws IllegalArgumentException{
@@ -82,24 +91,30 @@ public class User {
         // find budget
         Budget budget = findBudget(budgetName);
 
-        if(budget != null){
-            // error checking
+        // find difference in allocated amount
+        double allocatedDifference = newAllocated - budget.getRemaining();
 
-            if(bankAmount - ((newAllocated - budget.getAllocated())+ projectedSpend) < 0){
-                throw new IllegalArgumentException(NOT_ENOUGH_BANK);
-            }
+        // error checking
 
-            for (Budget b: budgets) {
-                if(b.getName().equals(newBudgetName)){
-                    throw new IllegalArgumentException(NAME_USED);
-                }
-            }
-
-            // update the budget
-            budget.setAllocated(newAllocated);
-            budget.setName(newBudgetName);
-            projectedSpend = projectedSpend + (newAllocated - budget.getAllocated());
+        if ((bankAmount - (allocatedDifference + projectedSpend)) < 0) {
+            throw new IllegalArgumentException(NOT_ENOUGH_BANK);
         }
+
+        if(newAllocated < budget.getRemaining()){
+            throw new IllegalArgumentException(NOT_ENOUGH_ALLO);
+        }
+
+        for (Budget b : budgets) {
+            if (b.getName().equals(newBudgetName) && !b.getName().equals(budget.getName())) {
+                throw new IllegalArgumentException(NAME_USED);
+            }
+        }
+
+        // update the budget
+        budget.setRemaining(newAllocated - (budget.getAllocated() - budget.getRemaining()));
+        budget.setAllocated(newAllocated);
+        budget.setName(newBudgetName);
+        projectedSpend = projectedSpend + allocatedDifference;
     }
 
 
@@ -109,7 +124,7 @@ public class User {
      */
     public void removeBudget(Budget budget){
         budgets.remove(budget);
-        projectedSpend = projectedSpend - budget.getAllocated();
+        projectedSpend = projectedSpend - budget.getRemaining();
     }
 
     // getters and setters

@@ -82,6 +82,83 @@ public class EditBudgetActivity extends AppCompatActivity {
     }
 
     /**
+     * This method is executed when button_delete_budget
+     * is clicked to delete a user budget
+     * @param view the view provided by the button
+     */
+    public void deleteBudget(View view) {
+
+        // used get current user
+        final FirebaseUser user = mFirebaseAuth.getCurrentUser();
+
+        // Attach a listener to read the data (user info)
+        mDatabaseReference.child(user.getUid()).addListenerForSingleValueEvent(
+                new ValueEventListener() {
+
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        // get user info and update
+                        User userInfo = dataSnapshot.getValue(User.class);
+
+                        // remove seletcted budget
+                        userInfo.removeBudget(budget);
+
+                        // update value in database using user id if no error occured
+                        mDatabaseReference.child(user.getUid()).setValue(userInfo);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Toast.makeText(EditBudgetActivity.this,
+                                getResources().getString(R.string.db_error_text)
+                                        + databaseError.getCode(),
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+        // return back to budget fragment in the navigation activity
+        finish();
+    }
+
+    /**
+     * This method is executed when button_reset_budget
+     * is clicked to reset user budget
+     * @param view the view provided by the button
+     */
+    public void resetBudget(View view) {
+
+        // used get current user
+        final FirebaseUser user = mFirebaseAuth.getCurrentUser();
+
+        // Attach a listener to read the data (user info)
+        mDatabaseReference.child(user.getUid()).addListenerForSingleValueEvent(
+                new ValueEventListener() {
+
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // get user info and update
+                        User userInfo = dataSnapshot.getValue(User.class);
+
+                        userInfo.resetBudget(budget);
+
+                        // update value in database using user id if no error occured
+                        mDatabaseReference.child(user.getUid()).setValue(userInfo);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Toast.makeText(EditBudgetActivity.this,
+                                getResources().getString(R.string.db_error_text)
+                                        + databaseError.getCode(),
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+        // return back to budget fragment in the navigation activity
+        finish();
+    }
+
+
+    /**
      * This method is executed when button_edit_budget
      * is clicked to edit user budget
      * @param view the view provided by the button

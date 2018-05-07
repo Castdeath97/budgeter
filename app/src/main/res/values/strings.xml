@@ -53,6 +53,8 @@
     <string name="record_transcation_switch_credit_text">Credit</string>
     <string name="budget_button_new">Add a new Budget</string>
     <string name="new_budget_button_text">Save Budget</string>
+    <string name="reset_budget_button_text">Reset Budget</string>
+    <string name="delete_budget_button_text">Delete Budget</string>
     <string name="new_budget_title">New Budget</string>
     <string name="edit_budget_title">Edit Budget</string>
     <string name="budget_amount_hint">Transaction value</string>
