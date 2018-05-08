@@ -149,9 +149,11 @@ public class RecordTransactionActivity extends AppCompatActivity {
                 // get user info and update
                 User userInfo = dataSnapshot.getValue(User.class);
 
-                // if user set it to credit add to amount, else subtract
+                // using a transaction update
                 if (credit){
-                    userInfo.setBankAmount(userInfo.getBankAmount() + amount);
+
+                    //userInfo.setBankAmount(userInfo.getBankAmount() + amount);
+                    userInfo.carryTransaction(null,amount,credit);
 
                 } else{ // else substract
 
@@ -164,12 +166,12 @@ public class RecordTransactionActivity extends AppCompatActivity {
                     }
 
                     else {
-                        userInfo.setBankAmount(userInfo.getBankAmount() - amount);
+                        // userInfo.setBankAmount(userInfo.getBankAmount() - amount);
 
-                        // update the budget as well if it's set to debit
+                        // get the budget as well if it's set to debit
                         Budget budget =
                                 userInfo.findBudget(mBudgetSpinner.getSelectedItem().toString());
-                        budget.setRemaining(budget.getRemaining() - amount);
+                        userInfo.carryTransaction(budget,amount,credit);
                     }
                 }
 

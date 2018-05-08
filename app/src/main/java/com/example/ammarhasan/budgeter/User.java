@@ -1,5 +1,6 @@
 package com.example.ammarhasan.budgeter;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +13,12 @@ public class User {
 
     private double bankAmount;
     private List<Budget> budgets; // list of budgets set by user
+    private List<Transaction> transactions; // list of transactions made by user
     private double projectedSpend;
 
     private static final String NOT_ENOUGH_BANK = "Not enough bank for budget";
-    private static final String NOT_ENOUGH_ALLO = "Amount spent is too high for allocation!";
     private static final String NAME_USED = "Name was used";
+    private static final String LESS_ZERO = "Must be larger than zero";
 
 
     // #TODO: Check Savings method
@@ -30,8 +32,8 @@ public class User {
         bankAmount = 0.0;
         projectedSpend = 0.0;
         budgets = new ArrayList<Budget>();
+        transactions = new ArrayList<Transaction>();
     }
-
 
     /**
      * Finds a given budget
@@ -47,12 +49,64 @@ public class User {
         return null; // not found
     }
 
-    public void carryDebitTransaction(Budget budget, double amount){
+    /**
+     * Carries a transaction to a budget
+     * @param budget Budget to carry transaction with
+     * @param amount Amount to spend
+     * @param credit Is it credit (true) or debit (false)
+     */
+    public void carryTransaction(Budget budget, double amount, boolean credit){
+
+        // error checking
+        if(amount <= 0){ // can't have 0 or less amount
+            throw new IllegalArgumentException(LESS_ZERO);
+        }
+
+        // Check if enough bank exists
+        if(((amount + projectedSpend) - bankAmount) <= 0){ // can't have 0 or less amount
+            throw new IllegalArgumentException(NOT_ENOUGH_BANK);
+        }
+
+        // create a new transaction
+        Transaction transaction =
+               // new Transaction(ZonedDateTime.now(), credit, amount, budget);
+                new Transaction(credit, amount, budget);
+        transactions.add(transaction);
+
+        // if debit, amount of project spend and budget will fall.
+        if(!credit){
+            projectedSpend = projectedSpend - amount;
+            budget.setRemaining(budget.getRemaining() - amount);
+            bankAmount = bankAmount - amount;
+        }else { // else just add to bank amount
+            bankAmount = bankAmount + amount;
+        }
 
     }
 
-    public void resetBudget(Budget b){
+    /**
+     * Resets budget remaining amount
+     * @param budgetName Name of budget to reset
+     * @throws IllegalArgumentException if not enough bank exists to reset the budget
+     */
+    public void resetBudget(String budgetName) throws IllegalArgumentException{
 
+        // find budget to update
+        Budget budget = findBudget(budgetName);
+
+        if(budget != null) {
+
+            // error check, see if enough budget exists to reset allocated amount
+            if ((bankAmount - (projectedSpend + (budget.getAllocated() - budget.getRemaining()))) < 0) {
+                throw new IllegalArgumentException(NOT_ENOUGH_BANK);
+            }
+
+            // update projected spending (difference between allocated and remaining)
+            projectedSpend = projectedSpend + (budget.getAllocated() - budget.getRemaining());
+
+            // reset remaining
+            budget.setRemaining(budget.getAllocated());
+        }
     }
 
     /**
@@ -64,8 +118,14 @@ public class User {
 
         // error checking
 
+        // See if enough bank exists for budget
         if(bankAmount - (budget.getRemaining() + projectedSpend) < 0){
             throw new IllegalArgumentException(NOT_ENOUGH_BANK);
+        }
+
+        // error checking
+        if(budget.getAllocated() <= 0){ // can't have 0 or less amount
+            throw new IllegalArgumentException(LESS_ZERO);
         }
 
         for (Budget b: budgets) {
@@ -92,16 +152,12 @@ public class User {
         Budget budget = findBudget(budgetName);
 
         // find difference in allocated amount
-        double allocatedDifference = newAllocated - budget.getRemaining();
+        double allocatedDifference = newAllocated - budget.getAllocated();
 
         // error checking
 
         if ((bankAmount - (allocatedDifference + projectedSpend)) < 0) {
             throw new IllegalArgumentException(NOT_ENOUGH_BANK);
-        }
-
-        if(newAllocated < budget.getRemaining()){
-            throw new IllegalArgumentException(NOT_ENOUGH_ALLO);
         }
 
         for (Budget b : budgets) {
@@ -151,5 +207,13 @@ public class User {
 
     public void setProjectedSpend(double projectedSpend) {
         this.projectedSpend = projectedSpend;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 }

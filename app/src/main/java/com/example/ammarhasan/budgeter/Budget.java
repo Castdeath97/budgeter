@@ -29,13 +29,6 @@ public class Budget {
         remaining = allocated;
     }
 
-    /**
-     * Reset amount remaining for budget
-     */
-    public void resetRemaining() {
-        this.remaining = 0.0;
-    }
-
     // equals and hashcode override
     public boolean equals(Object o) {
         if (!(o instanceof Budget)) {

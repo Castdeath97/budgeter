@@ -139,7 +139,14 @@ public class EditBudgetActivity extends AppCompatActivity {
                         // get user info and update
                         User userInfo = dataSnapshot.getValue(User.class);
 
-                        userInfo.resetBudget(budget);
+                        // make sure to report any errors
+                        try{
+                            userInfo.resetBudget(budget.getName());
+                        } catch (IllegalArgumentException e){
+                            Toast.makeText(EditBudgetActivity.this, e.getMessage(),
+                                    Toast.LENGTH_LONG).show();
+                            return;
+                        }
 
                         // update value in database using user id if no error occured
                         mDatabaseReference.child(user.getUid()).setValue(userInfo);
