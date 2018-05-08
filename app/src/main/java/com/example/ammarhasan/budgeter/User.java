@@ -1,6 +1,5 @@
 package com.example.ammarhasan.budgeter;
 
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,14 +15,16 @@ public class User {
     private List<Transaction> transactions; // list of transactions made by user
     private double projectedSpend;
 
-    private static final String NOT_ENOUGH_BANK = "Not enough bank for budget";
+    private static final String NOT_ENOUGH_BANK_BUD = "Not enough bank for budget";
+    private static final String NOT_ENOUGH_BANK_TRANS = "Not enough bank for transaction";
     private static final String NAME_USED = "Name was used";
     private static final String LESS_ZERO = "Must be larger than zero";
 
 
-    // #TODO: Check Savings method
-    // #TODO: Add transactions (User can interact with these)
-    // #TODO: Do checks
+    // #TODO: Projected Savings method
+    // #TODO: Add spent this day
+    // #TODO: Add spent this month
+    // #TODO: Add earned this month
 
     /**
      * User default constructor
@@ -64,7 +65,7 @@ public class User {
 
         // Check if enough bank exists
         if(((amount + projectedSpend) - bankAmount) <= 0){ // can't have 0 or less amount
-            throw new IllegalArgumentException(NOT_ENOUGH_BANK);
+            throw new IllegalArgumentException(NOT_ENOUGH_BANK_TRANS);
         }
 
         // create a new transaction
@@ -98,7 +99,7 @@ public class User {
 
             // error check, see if enough budget exists to reset allocated amount
             if ((bankAmount - (projectedSpend + (budget.getAllocated() - budget.getRemaining()))) < 0) {
-                throw new IllegalArgumentException(NOT_ENOUGH_BANK);
+                throw new IllegalArgumentException(NOT_ENOUGH_BANK_BUD);
             }
 
             // update projected spending (difference between allocated and remaining)
@@ -120,7 +121,7 @@ public class User {
 
         // See if enough bank exists for budget
         if(bankAmount - (budget.getRemaining() + projectedSpend) < 0){
-            throw new IllegalArgumentException(NOT_ENOUGH_BANK);
+            throw new IllegalArgumentException(NOT_ENOUGH_BANK_BUD);
         }
 
         // error checking
@@ -157,7 +158,7 @@ public class User {
         // error checking
 
         if ((bankAmount - (allocatedDifference + projectedSpend)) < 0) {
-            throw new IllegalArgumentException(NOT_ENOUGH_BANK);
+            throw new IllegalArgumentException(NOT_ENOUGH_BANK_BUD);
         }
 
         for (Budget b : budgets) {

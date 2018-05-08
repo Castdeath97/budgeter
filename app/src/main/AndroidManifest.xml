@@ -22,7 +22,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RecordTransactionActivity" />
         <activity android:name=".NewBudgetActivity" />
-        <activity android:name=".EditBudgetActivity"></activity>
+        <activity android:name=".EditBudgetActivity" />
+        <activity android:name=".ArticleActivity"></activity>
     </application>
 
 </manifest>

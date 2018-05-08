@@ -151,9 +151,16 @@ public class RecordTransactionActivity extends AppCompatActivity {
 
                 // using a transaction update
                 if (credit){
+                    // check and report any errors
+                    try{
+                        userInfo.carryTransaction(null,amount,credit);
+                    }
 
-                    //userInfo.setBankAmount(userInfo.getBankAmount() + amount);
-                    userInfo.carryTransaction(null,amount,credit);
+                    catch (IllegalArgumentException e){
+                        Toast.makeText(RecordTransactionActivity.this, e.getMessage(),
+                                Toast.LENGTH_LONG).show();
+                        return;
+                    }
 
                 } else{ // else substract
 
@@ -166,12 +173,20 @@ public class RecordTransactionActivity extends AppCompatActivity {
                     }
 
                     else {
-                        // userInfo.setBankAmount(userInfo.getBankAmount() - amount);
-
                         // get the budget as well if it's set to debit
                         Budget budget =
                                 userInfo.findBudget(mBudgetSpinner.getSelectedItem().toString());
-                        userInfo.carryTransaction(budget,amount,credit);
+
+                        // Check and report any errors
+                        try {
+                            userInfo.carryTransaction(budget, amount, credit);
+                        }
+
+                        catch (IllegalArgumentException e){
+                            Toast.makeText(RecordTransactionActivity.this, e.getMessage(),
+                                    Toast.LENGTH_LONG).show();
+                            return;
+                        }
                     }
                 }
 
