@@ -158,17 +158,17 @@
     <TextView
         android:id="@+id/text_spend_earn_year_heading"
         android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_height="28dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="14dp"
         android:text="@string/report_year_spending_Earning_heading"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.383"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_bank_heading"
-        app:layout_constraintVertical_bias="0.121" />
+        app:layout_constraintVertical_bias="0.205" />
 
     <TextView
         android:id="@+id/text_bank_value"
@@ -185,5 +185,52 @@
         app:layout_constraintStart_toEndOf="@+id/text_bank_heading"
         app:layout_constraintTop_toBottomOf="@+id/text_projected_save_value"
         app:layout_constraintVertical_bias="0.036" />
+
+    <ProgressBar
+        android:id="@+id/progress_spend_earn"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="348dp"
+        android:layout_height="28dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:progressTint="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_spend_earn_year_heading"
+        app:layout_constraintVertical_bias="0.145" />
+
+    <TextView
+        android:id="@+id/text_year_earn"
+        android:layout_width="59dp"
+        android:layout_height="16dp"
+        android:layout_marginBottom="26dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progress_spend_earn"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/text_year_spend"
+        android:layout_width="59dp"
+        android:layout_height="16dp"
+        android:layout_marginBottom="26dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progress_spend_earn"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

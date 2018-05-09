@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,7 +50,11 @@ public class ReportsFragment extends Fragment {
         final TextView projectedSpendValue = getView().findViewById(R.id.text_projected_spend_value);
         final TextView projectedSaveValue = getView().findViewById(R.id.text_projected_save_value);
         final TextView monthSpendValue = getView().findViewById(R.id.text_month_spend_value);
+        final TextView yearSpendValue = getView().findViewById(R.id.text_year_spend);
+        final TextView yearEarnValue = getView().findViewById(R.id.text_year_earn);
 
+        // find progress bar
+        final ProgressBar progressBar = getView().findViewById(R.id.progress_spend_earn);
 
         // get firebase database reference and Authentication object
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -72,10 +77,16 @@ public class ReportsFragment extends Fragment {
                         projectedSpendValue.setText(Double.toString(userInfo.getProjectedSpend()));
                         daySpendValue.setText(Double.toString(userInfo.getDaySpend()));
                         monthSpendValue.setText(Double.toString(userInfo.getMonthSpend()));
+                        yearEarnValue.setText(Double.toString(userInfo.getYearEarn()));
+                        yearSpendValue.setText(Double.toString(userInfo.getYearSpend()));
 
                         // find save
                         projectedSaveValue.setText(Double.toString
                                 (userInfo.getBankAmount() - userInfo.getProjectedSpend()));
+
+                        // set progress bar % based on Year spend to Year earn ratio
+                        progressBar.setProgress((int)
+                                ((userInfo.getYearSpend() / userInfo.getYearEarn()) * 100 + 0.5));
                     }
 
                     @Override
