@@ -51,8 +51,8 @@
     <string name="home_transaction_button_title">Add Transaction</string>
     <string name="record_transaction_button_text">Record Transaction</string>
     <string name="record_transaction_activity_name">Record a Transaction</string>
-    <string name="record_transcation_switch_debit_text">Debit</string>
-    <string name="record_transcation_switch_credit_text">Credit</string>
+    <string name="record_transaction_switch_debit_text">Debit</string>
+    <string name="record_transaction_switch_credit_text">Credit</string>
     <string name="budget_button_new">Add a new Budget</string>
     <string name="new_budget_button_text">Save Budget</string>
     <string name="reset_budget_button_text">Reset Budget</string>
@@ -70,5 +70,13 @@
     <string name="budget_list_remaining">Remaining:&#032;%1$.2f</string>
     <string name="budget_already_exists">A budget with that name already exists</string>
     <string name="empty_field">A field is empty</string>
+
+
+    <string name="projected_spending_heading">Projected Spending</string>
+    <string name="home_day_spending_heading">Today\'s Spending</string>
+    <string name="bank_heading">Bank Amount</string>
+    <string name="report_projected_savings_heading">Projected Savings</string>
+    <string name="report_month_spending_heading">Month\'s Spending</string>
+    <string name="report_year_spending_Earning_heading">Yearly Spending VS Yearly Earning</string>
 
 </resources>

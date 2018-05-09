@@ -62,6 +62,10 @@ public class BudgetFragment extends Fragment {
         // reset it
         budgetsLayout.removeAllViews();
 
+        // find fields
+        final TextView bankValue = getView().findViewById(R.id.text_bank_value);
+        final TextView projectedSpendValue = getView().findViewById(R.id.text_projected_spend_value);
+
         // Read database for budgets
 
         // get firebase database reference and Authentication object
@@ -79,6 +83,10 @@ public class BudgetFragment extends Fragment {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         // get user info and update
                         User userInfo = dataSnapshot.getValue(User.class);
+
+                        // update fields
+                        bankValue.setText(Double.toString(userInfo.getBankAmount()));
+                        projectedSpendValue.setText(Double.toString(userInfo.getProjectedSpend()));
 
                         // Add a new clickable linear layout for each budget with info
                         for (final Budget b : userInfo.getBudgets()) {

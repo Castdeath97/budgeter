@@ -20,6 +20,97 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.066" />
 
+    <TextView
+        android:id="@+id/text_today_spend_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/home_day_spending_heading"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_title"
+        app:layout_constraintVertical_bias="0.086" />
+
+    <TextView
+        android:id="@+id/text_today_spend_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textAlignment="viewStart"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toEndOf="@+id/text_today_spend_heading"
+        app:layout_constraintTop_toBottomOf="@+id/text_title"
+        app:layout_constraintVertical_bias="0.086" />
+
+    <TextView
+        android:id="@+id/text_projected_spend_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginBottom="420dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/projected_spending_heading"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_today_spend_heading"
+        app:layout_constraintVertical_bias="0.129" />
+
+    <TextView
+        android:id="@+id/text_projected_spend_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="420dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textAlignment="viewStart"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toEndOf="@+id/text_projected_spend_heading"
+        app:layout_constraintTop_toBottomOf="@+id/text_today_spend_value"
+        app:layout_constraintVertical_bias="0.066" />
+
+    <TextView
+        android:id="@+id/text_bank_value"
+        android:layout_width="143dp"
+        android:layout_height="28dp"
+        android:layout_marginBottom="368dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textAlignment="viewStart"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintStart_toEndOf="@+id/text_bank_heading"
+        app:layout_constraintTop_toBottomOf="@+id/text_projected_spend_value"
+        app:layout_constraintVertical_bias="0.098" />
+
+    <TextView
+        android:id="@+id/text_bank_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="7dp"
+        android:text="@string/bank_heading"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_add_transaction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_projected_spend_heading"
+        app:layout_constraintVertical_bias="0.138" />
+
     <Button
         android:id="@+id/button_add_transaction"
         android:layout_width="wrap_content"
@@ -31,9 +122,9 @@
         android:text="@string/home_transaction_button_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96" />
+        app:layout_constraintTop_toBottomOf="@+id/text_bank_value"
+        app:layout_constraintVertical_bias="0.227" />
 
 </android.support.constraint.ConstraintLayout>

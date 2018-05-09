@@ -154,10 +154,6 @@ public class RecordTransactionActivity extends AppCompatActivity {
                     // check and report any errors
                     try{
                         userInfo.carryTransaction(null,amount,credit);
-                        Toast.makeText(RecordTransactionActivity.this,
-                                userInfo.getTransactions().get(0).getDateTime()
-                                        .getZonedDateTimeString(),
-                                Toast.LENGTH_LONG).show();
                     }
 
                     catch (IllegalArgumentException e){

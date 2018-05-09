@@ -1,5 +1,6 @@
 package com.example.ammarhasan.budgeter;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,6 @@ public class User {
     private static final String LESS_ZERO = "Must be larger than zero";
 
 
-    // #TODO: Projected Savings method
     // #TODO: Add spent this day
     // #TODO: Add spent this month
     // #TODO: Add earned this month
@@ -34,6 +34,75 @@ public class User {
         projectedSpend = 0.0;
         budgets = new ArrayList<Budget>();
         transactions = new ArrayList<Transaction>();
+    }
+
+
+    /**
+     * Finds amount spend this day
+     * @return Amount spent today as a double
+     */
+    public Double getDaySpend(){
+        double total = 0;
+
+        // for all transactions, check if they occur today and are debit to add to total
+        for (Transaction t : transactions) {
+            if(t.getDateTime().getDay() == ZonedDateTime.now().getDayOfMonth()
+                    && !t.getCredit()){
+                total = t.getAmount() + total;
+            }
+        }
+        return total;
+    }
+
+    /**
+     * Finds amount spend this month
+     * @return Amount spent this month as a double
+     */
+    public Double getMonthSpend(){
+        double total = 0;
+
+        // for all transactions, check if they occured this month and are debit to add to total
+        for (Transaction t : transactions) {
+            if(t.getDateTime().getMonth() == ZonedDateTime.now().getMonthValue()
+                    && !t.getCredit()){
+                total = t.getAmount() + total;
+            }
+        }
+        return total;
+    }
+
+    /**
+     * Finds amount spend this year
+     * @return Amount spent this year as a double
+     */
+    public Double getYearSpend(){
+        double total = 0;
+
+        // for all transactions, check if they occured this year and are debit to add to total
+        for (Transaction t : transactions) {
+            if(t.getDateTime().getYear() == ZonedDateTime.now().getYear()
+                    && !t.getCredit()){
+                total = t.getAmount() + total;
+            }
+        }
+        return total;
+    }
+
+    /**
+     * Finds amount earned this year
+     * @return Amount earned this year as a double
+     */
+    public Double getYearEarn(){
+        double total = 0;
+
+        // for all transactions, check if they occured this year and are credit to add to total
+        for (Transaction t : transactions) {
+            if(t.getDateTime().getYear() == ZonedDateTime.now().getYear()
+                    && t.getCredit()){
+                total = t.getAmount() + total;
+            }
+        }
+        return total;
     }
 
     /**
@@ -64,7 +133,7 @@ public class User {
         }
 
         // Check if enough bank exists
-        if(!credit && ((amount + projectedSpend) - bankAmount) <= 0){ // can't have 0 or less amount
+        if(!credit && (bankAmount - (amount + projectedSpend)) <= 0){ // can't have 0 or less amount
             throw new IllegalArgumentException(NOT_ENOUGH_BANK_TRANS);
         }
 

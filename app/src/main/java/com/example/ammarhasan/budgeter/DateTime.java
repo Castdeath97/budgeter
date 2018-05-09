@@ -25,7 +25,28 @@ public class DateTime {
         this.zonedDateTime = zonedDateTime;
     }
 
-    public String getZonedDateTimeString() {
-        return zonedDateTime.toString();
+
+    /**
+     * Container method for .getDayOfMonth()
+     * @return Day of the month as an int
+     */
+    public int getDay(){
+        return zonedDateTime.getDayOfMonth();
+    }
+
+    /**
+     * Container method for .getMonthValue()
+     * @return Month as an int
+     */
+    public int getMonth(){
+        return zonedDateTime.getMonthValue();
+    }
+
+    /**
+     * Container method for .getYear
+     * @return Year as an int
+     */
+    public int getYear(){
+        return zonedDateTime.getYear();
     }
 }
