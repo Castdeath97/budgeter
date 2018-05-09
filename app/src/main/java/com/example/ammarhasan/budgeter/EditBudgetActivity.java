@@ -142,6 +142,14 @@ public class EditBudgetActivity extends AppCompatActivity {
                         // make sure to report any errors
                         try{
                             userInfo.resetBudget(budget.getName());
+
+                            // check if current budget setup meets target, if not alert user
+                            if((userInfo.getBankAmount() - userInfo.getProjectedSpend()) <
+                                    userInfo.getTargetSaving()){
+                                Toast.makeText(EditBudgetActivity.this,
+                                        getResources().getString(R.string.saving_target_warn),
+                                        Toast.LENGTH_LONG).show();
+                            }
                         } catch (IllegalArgumentException e){
                             Toast.makeText(EditBudgetActivity.this, e.getMessage(),
                                     Toast.LENGTH_LONG).show();
@@ -203,6 +211,14 @@ public class EditBudgetActivity extends AppCompatActivity {
                         try{
                             userInfo.updateBudget(budget.getName()
                                     ,newBudgetName, newAllocatedAmount);
+
+                            // check if current budget setup meets target, if not alert user
+                            if((userInfo.getBankAmount() - userInfo.getProjectedSpend()) <
+                                    userInfo.getTargetSaving()){
+                                Toast.makeText(EditBudgetActivity.this,
+                                        getResources().getString(R.string.saving_target_warn),
+                                        Toast.LENGTH_LONG).show();
+                            }
                         }
                         catch (IllegalArgumentException e){
                             Toast.makeText(EditBudgetActivity.this, e.getMessage(),

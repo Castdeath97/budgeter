@@ -76,6 +76,14 @@ public class NewBudgetActivity extends AppCompatActivity {
 
                         try{
                             userInfo.addBudget(new Budget(budgetName, allocatedAmount));
+
+                            // check if current budget setup meets target, if not alert user
+                            if((userInfo.getBankAmount() - userInfo.getProjectedSpend()) <
+                                    userInfo.getTargetSaving()){
+                                Toast.makeText(NewBudgetActivity.this,
+                                        getResources().getString(R.string.saving_target_warn),
+                                        Toast.LENGTH_LONG).show();
+                            }
                         }
                         catch (IllegalArgumentException e){
                             Toast.makeText(NewBudgetActivity.this, e.getMessage(),

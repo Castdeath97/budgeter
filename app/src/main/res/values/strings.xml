@@ -79,4 +79,10 @@
     <string name="report_month_spending_heading">Month\'s Spending</string>
     <string name="report_year_spending_Earning_heading">Yearly Spending VS Yearly Earning</string>
 
+    <string name="low_budget_warn">Warning low bank!!!</string>
+    <string name="saving_target_warn">Saving target will be missed under current budget!!!</string>
+
+    <string name="settings_save_button_text">Save Settings</string>
+    <string name="settings_saving_target_heading">Saving Target</string>
+    <string name="settings_low_bank_warn_heading">Low Bank Warning</string>
 </resources>

@@ -48,7 +48,7 @@ public class RecordTransactionActivity extends AppCompatActivity {
         // find all buttons and fields
         mRecordTransactionBtn = findViewById(R.id.button_record_transcation);
         Switch mCreditDebitSwitch = findViewById(R.id.switch_credit_debit);
-        mAmountText = findViewById(R.id.text_number_amount);
+        mAmountText = findViewById(R.id.text_low_bank_warn_value);
         mBudgetSpinner = findViewById(R.id.spinner_budget);
 
 
@@ -180,6 +180,13 @@ public class RecordTransactionActivity extends AppCompatActivity {
                         // Check and report any errors
                         try {
                             userInfo.carryTransaction(budget, amount, credit);
+
+                            // alert user if bank amount is low
+                            if(userInfo.getBankAmount() <= userInfo.getLowBankWarning()){
+                                Toast.makeText(RecordTransactionActivity.this,
+                                        getResources().getString(R.string.low_budget_warn),
+                                        Toast.LENGTH_LONG).show();
+                            }
                         }
 
                         catch (IllegalArgumentException e){

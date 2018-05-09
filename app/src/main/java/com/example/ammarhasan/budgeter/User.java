@@ -15,11 +15,16 @@ public class User {
     private List<Budget> budgets; // list of budgets set by user
     private List<Transaction> transactions; // list of transactions made by user
     private double projectedSpend;
+    private double targetSaving;
+    private double lowBankWarning;
 
     private static final String NOT_ENOUGH_BANK_BUD = "Not enough bank for budget";
-    private static final String NOT_ENOUGH_BANK_TRANS = "Not enough bank for transaction";
+    private static final String NOT_ENOUGH_BUD_TRANS = "Not enough budget for transaction";
     private static final String NAME_USED = "Name was used";
     private static final String LESS_ZERO = "Must be larger than zero";
+    private static final double DEF_SAVING_TAR = 150;
+    private static final double DEF_LOW_BANK_WARN = 80;
+
 
 
     // #TODO: Add spent this day
@@ -32,6 +37,8 @@ public class User {
     public User() {
         bankAmount = 0.0;
         projectedSpend = 0.0;
+        targetSaving = DEF_SAVING_TAR;
+        lowBankWarning = DEF_LOW_BANK_WARN;
         budgets = new ArrayList<Budget>();
         transactions = new ArrayList<Transaction>();
     }
@@ -132,9 +139,9 @@ public class User {
             throw new IllegalArgumentException(LESS_ZERO);
         }
 
-        // Check if enough bank exists
-        if(!credit && (bankAmount - (amount + projectedSpend)) <= 0){ // can't have 0 or less amount
-            throw new IllegalArgumentException(NOT_ENOUGH_BANK_TRANS);
+        // Check if enough bank in budget exists
+        if(!credit && (budget.getRemaining() - amount) < 0){
+            throw new IllegalArgumentException(NOT_ENOUGH_BUD_TRANS);
         }
 
         // create a new transaction
@@ -254,6 +261,22 @@ public class User {
     }
 
     // getters and setters
+
+    public double getTargetSaving() {
+        return targetSaving;
+    }
+
+    public void setTargetSaving(double targetSaving) {
+        this.targetSaving = targetSaving;
+    }
+
+    public double getLowBankWarning() {
+        return lowBankWarning;
+    }
+
+    public void setLowBankWarning(double lowBugdetWarning) {
+        this.lowBankWarning = lowBugdetWarning;
+    }
 
     public double getBankAmount() {
         return bankAmount;
