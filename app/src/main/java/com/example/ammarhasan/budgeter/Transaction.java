@@ -1,7 +1,15 @@
 package com.example.ammarhasan.budgeter;
 
+import android.text.format.DateFormat;
+
+import com.google.firebase.database.Exclude;
+import com.google.firebase.database.ServerValue;
+
 import java.time.ZonedDateTime;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
+import java.util.Map;
 
 /**
  * @author Ammar Hasan 150454388 May 2018
@@ -10,44 +18,35 @@ import java.util.Date;
  */
 public class Transaction {
 
-    //private ZonedDateTime date;
-    private Boolean credit;
-    private Double amount;
+    private boolean credit;
+    private double amount;
     private Budget budget;
+    private DateTime dateTime;
 
     /**
      * Transaction default constructor
      */
-    public Transaction(){
+    public Transaction() {
 
     }
 
     /**
      * Transaction constructor
-     * @param date date of transaction
+     *
      * @param credit was the transaction credit (true) (or debit (false))
      * @param amount amount of transaction
      * @param budget budget transaction belongs to
      */
-    public Transaction(Boolean credit, Double amount, Budget budget) {
-        //this.date = date;
+    public Transaction(Boolean credit, double amount, Budget budget) {
         this.credit = credit;
         this.amount = amount;
         this.budget = budget;
+        this.dateTime = new DateTime();
     }
 
     // getters and setters
 
-    /*
-    public ZonedDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(ZonedDateTime date) {
-        this.date = date;
-    } */
-
-    public Boolean getCredit() {
+    public boolean getCredit() {
         return credit;
     }
 
@@ -55,7 +54,7 @@ public class Transaction {
         this.credit = credit;
     }
 
-    public Double getAmount() {
+    public double getAmount() {
         return amount;
     }
 
@@ -69,5 +68,13 @@ public class Transaction {
 
     public void setBudget(Budget budget) {
         this.budget = budget;
+    }
+
+    public DateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(DateTime dateTime) {
+        this.dateTime = dateTime;
     }
 }

@@ -28,22 +28,24 @@
     <string name="contacts_financal_assist_website_heading">Student Assist Fund</string>
 
 
-    <string name="contacts_undergrad_fees_website_content">http://www.ncl.ac.uk/undergraduate
-        /finance/</string>
+    <string name="contacts_undergrad_fees_website_content">
+        http://www.ncl.ac.uk/undergraduate/finance/</string>
 
-    <string name="contacts_support_website_content">http://www.ncl.ac.uk/students/wellbeing
-        /finance/</string>
+    <string name="contacts_support_website_content">
+        http://www.ncl.ac.uk/students/wellbeing/finance/</string>
 
     <string name="contacts_acco_website_content">http://www.ncl.ac.uk/accommodation/</string>
-    <string name="contacts_postgrad_fees_website_content">http://www.ncl.ac.uk/postgraduate
-        /finance/</string>
+    <string name="contacts_postgrad_fees_website_content">
+        http://www.ncl.ac.uk/postgraduate/finance/</string>
 
-    <string name="contacts_financal_support_content">http://www.ncl.ac.uk/students/wellbeing
-        /finance/hardship/studentfinancialsupportfund/overview.htm</string>
+    <string name="contacts_financal_support_content">
+        http://www.ncl.ac.uk/students/wellbeing/finance/hardship/studentfinancialsupportfund/overview.htm
+    </string>
 
 
-    <string name="contacts_financal_assist_content">http://www.ncl.ac.uk/students/wellbeing
-        /finance/hardship/financialassistancefund/overview.htm</string>
+    <string name="contacts_financal_assist_content">
+        http://www.ncl.ac.uk/students/wellbeing/finance/hardship/financialassistancefund/overview.htm
+    </string>
 
 
     <string name="home_transaction_button_title">Add Transaction</string>
@@ -63,6 +65,8 @@
     <string name="db_error_text">The read failed:</string>
     <string name="budget_list_name">%1$s</string>
     <string name="budget_list_allocated">Allocated:&#032;%1$.2f</string>
+    <string name="article_list_title">%1$s</string>
+    <string name="article_list_author">Author:&#032;%1$s</string>
     <string name="budget_list_remaining">Remaining:&#032;%1$.2f</string>
     <string name="budget_already_exists">A budget with that name already exists</string>
     <string name="empty_field">A field is empty</string>

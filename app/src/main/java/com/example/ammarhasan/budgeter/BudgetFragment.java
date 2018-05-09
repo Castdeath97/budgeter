@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,16 +56,6 @@ public class BudgetFragment extends Fragment {
 
         // on resume update list of budgets
 
-        Button mNewBudgetBtn = getView().findViewById(R.id.button_new_budget);
-
-        // add listener to new budget button
-        mNewBudgetBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                newBudget(); // call new budget method to switch activity
-            }
-        });
-
         // find linear layout to fill with budgets
         final LinearLayout budgetsLayout = getView().findViewById(R.id.linear_layout_budgets);
 
@@ -81,7 +72,7 @@ public class BudgetFragment extends Fragment {
         final FirebaseUser user = mFirebaseAuth.getCurrentUser();
 
         // Attach a listener to read the data (user info)
-        databaseReference.child(user.getUid()).addValueEventListener (
+        databaseReference.child(user.getUid()).addListenerForSingleValueEvent (
                 new ValueEventListener() {
 
                     @Override
@@ -130,8 +121,8 @@ public class BudgetFragment extends Fragment {
                             budgetNameTextView.setText(mContext.getResources().
                                     getString(R.string.budget_list_name, b.getName()));
                             budgetNameTextView.setTextSize(TITLE_TEXT_SIZE);
-                            budgetNameTextView.setTextColor(mContext.getResources()
-                                    .getColor(R.color.colorAccent));
+                            budgetNameTextView.setTextColor
+                                    (ContextCompat.getColor(mContext, R.color.colorAccent));
                             budgetLayout.addView(budgetNameTextView);
 
 
@@ -139,8 +130,8 @@ public class BudgetFragment extends Fragment {
                             budgetAllocatedTextView.setText(mContext.getResources().getString(
                                     R.string.budget_list_allocated, b.getAllocated()));
                             budgetAllocatedTextView.setTextSize(TEXT_SIZE);
-                            budgetAllocatedTextView.setTextColor(mContext.getResources()
-                                    .getColor(R.color.colorAccent));
+                            budgetAllocatedTextView.setTextColor
+                                    (ContextCompat.getColor(mContext, R.color.colorAccent));
                             budgetLayout.addView(budgetAllocatedTextView);
 
 
@@ -148,8 +139,8 @@ public class BudgetFragment extends Fragment {
                             budgetRemainingTextView.setText(mContext.getResources().getString(
                                     R.string.budget_list_remaining, b.getRemaining()));
                             budgetRemainingTextView.setTextSize(TEXT_SIZE);
-                            budgetRemainingTextView.setTextColor(mContext.getResources()
-                                    .getColor(R.color.colorAccent));
+                            budgetRemainingTextView.setTextColor
+                                    (ContextCompat.getColor(mContext, R.color.colorAccent));
                             budgetLayout.addView(budgetRemainingTextView);
 
                             // add layout to main layout
@@ -180,6 +171,16 @@ public class BudgetFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // used to do activity stuff, use view to find stuff and use getActivity to get context
+        Button mNewBudgetBtn = getView().findViewById(R.id.button_new_budget);
+
+        // add listener to new budget button
+        mNewBudgetBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                newBudget(); // call new budget method to switch activity
+            }
+        });
+
     }
 
     /**

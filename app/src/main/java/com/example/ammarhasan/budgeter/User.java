@@ -64,7 +64,7 @@ public class User {
         }
 
         // Check if enough bank exists
-        if(((amount + projectedSpend) - bankAmount) <= 0){ // can't have 0 or less amount
+        if(!credit && ((amount + projectedSpend) - bankAmount) <= 0){ // can't have 0 or less amount
             throw new IllegalArgumentException(NOT_ENOUGH_BANK_TRANS);
         }
 
