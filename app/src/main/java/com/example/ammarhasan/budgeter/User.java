@@ -48,7 +48,7 @@ public class User {
      * Finds amount spend this day
      * @return Amount spent today as a double
      */
-    public Double getDaySpend(){
+    public double getDaySpend(){
         double total = 0;
 
         // for all transactions, check if they occur today and are debit to add to total
@@ -82,7 +82,7 @@ public class User {
      * Finds amount spend this year
      * @return Amount spent this year as a double
      */
-    public Double getYearSpend(){
+    public double getYearSpend(){
         double total = 0;
 
         // for all transactions, check if they occured this year and are debit to add to total
@@ -99,7 +99,7 @@ public class User {
      * Finds amount earned this year
      * @return Amount earned this year as a double
      */
-    public Double getYearEarn(){
+    public double getYearEarn(){
         double total = 0;
 
         // for all transactions, check if they occured this year and are credit to add to total

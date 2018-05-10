@@ -8,13 +8,20 @@ import java.time.ZonedDateTime;
  * providing a empty constructor to allow it to work with firebase
  */
 public class DateTime {
-    private ZonedDateTime zonedDateTime;
+
+    private int day;
+    private int month;
+    private int year;
 
     /**
      * Default empty constructor, sets zonedDateTime to now
      */
     public DateTime() {
-        this.zonedDateTime = ZonedDateTime.now();
+
+        ZonedDateTime zonedDateTime = ZonedDateTime.now();
+        day = zonedDateTime.getDayOfMonth();
+        month = zonedDateTime.getMonthValue();
+        year = zonedDateTime.getYear();
     }
 
     /**
@@ -22,31 +29,34 @@ public class DateTime {
      * @param zonedDateTime Zoned time
      */
     public DateTime(ZonedDateTime zonedDateTime) {
-        this.zonedDateTime = zonedDateTime;
+        day = zonedDateTime.getDayOfMonth();
+        month = zonedDateTime.getMonthValue();
+        year = zonedDateTime.getYear();
     }
 
+    // getter and setters
 
-    /**
-     * Container method for .getDayOfMonth()
-     * @return Day of the month as an int
-     */
-    public int getDay(){
-        return zonedDateTime.getDayOfMonth();
+    public int getDay() {
+        return day;
     }
 
-    /**
-     * Container method for .getMonthValue()
-     * @return Month as an int
-     */
-    public int getMonth(){
-        return zonedDateTime.getMonthValue();
+    public void setDay(int day) {
+        this.day = day;
     }
 
-    /**
-     * Container method for .getYear
-     * @return Year as an int
-     */
-    public int getYear(){
-        return zonedDateTime.getYear();
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 }
