@@ -1,0 +1,127 @@
+{
+  "2Q1a0lvauYUOOd0ntNyb1B1Dg4I3" : {
+    "bankAmount" : 900,
+    "budgets" : [ {
+      "allocated" : 300,
+      "name" : "Food",
+      "remaining" : 300
+    }, {
+      "allocated" : 300,
+      "name" : "Entertainment",
+      "remaining" : 300
+    }, {
+      "allocated" : 221,
+      "name" : "Food 2",
+      "remaining" : 221
+    } ],
+    "daySpend" : 100,
+    "lowBankWarning" : 80,
+    "monthSpend" : 100,
+    "projectedSpend" : 821,
+    "targetSaving" : 80,
+    "transactions" : [ {
+      "amount" : 1000,
+      "credit" : true,
+      "dateTime" : {
+        "day" : 11,
+        "month" : 5,
+        "year" : 2018
+      }
+    }, {
+      "amount" : 100,
+      "budget" : {
+        "allocated" : 300,
+        "name" : "Food",
+        "remaining" : 200
+      },
+      "credit" : false,
+      "dateTime" : {
+        "day" : 11,
+        "month" : 5,
+        "year" : 2018
+      }
+    } ],
+    "yearEarn" : 1000,
+    "yearSpend" : 100
+  },
+  "ArticleManager" : {
+    "articles" : [ {
+      "articleId" : 0,
+      "author" : "Matt Smith",
+      "post" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In scelerisque, nisl vel rutrum hendrerit, lectus justo iaculis purus, ac lobortis justo purus quis eros. Suspendisse potenti. Sed faucibus egestas ultricies. Vestibulum bibendum ut mi ullamcorper facilisis. In condimentum in purus quis euismod. Duis convallis eu arcu id elementum. Cras a ante a libero ullamcorper pretium nec id ipsum. leo sit amet ante ultrices lacinia. Fusce in venenatis turpis, ornare iaculis nulla. Integer eget massa vel tortor conis., venenatis et semper vel, venenatis a mi.",
+      "title" : "Dolor Sit Amet"
+    }, {
+      "articleId" : 1,
+      "author" : "Smith Matt",
+      "post" : "Donec sollicitudin leo ac augue iaculis pretium. Suspendisse in maximus massa, vel luctus tellus. In hac habitasse platea dictumst. Praesent pretium odio sed lectus elementum tincidunt. Suspendisse malesuada laoreet lacus vitae auctor. Etiam erat odio, feugiat auctor ex quis, facilisis volutpat dui. Quisque eget malesuada velit. In efficitur vitae metus nec luctus. Suspendisse felis neque, sagittis feugiat fermentum id, tincidunt a libero.\n\nAliquam ut consectetur orci. Nulla erat tellus, porta nec dolor at, semper condimentum ex. Duis faucibus nec enim ac venenatis. Donec enim metus, luctus a justo ut, vestibulum venenatis tellus. Nullam quis bibendum augue. Integer efficitur arcu ut elit pulvinar, ac faucibus metus tincidunt. Aenean tempus arcu id nisi finibus, et congue mi ultricies. Etiam quis varius augue. Ut pulvinar, neque ut interdum gravida, enim turpis sollicitudin ex, in aliquam mi quam at orci. Mauris semper tincidunt hendrerit.\n\nIn hac habitasse platea dictumst. Sed a volutpat turpis. Nulla facilisi. Sed iaculis, urna ut imperdiet pellentesque, turpis libero imperdiet erat, et varius justo sem non orci. Nulla in arcu eget sem consectetur bibendum. Ut ultrices augue in lectus egestas rhoncus. Vestibulum id lorem leo. Ut id commodo diam, in venenatis sapien. Maecenas blandit semper dui, quis lacinia dui volutpat et. Suspendisse facilisis, tellus eu condimentum malesuada, ligula massa tempor mi, eget fringilla diam metus ut dui. Quisque bibendum leo sit amet ante ultrices lacinia. Fusce in venenatis turpis, ornare iaculis nulla. Integer eget massa vel tortor consequat interdum id nec quam. Donec erat mi, malesuada semper ex at, dignissim efficitur enim. Cras tortor mauris, venenatis et semper vel, venenatis a mi.",
+      "title" : "Donec Sollicitudin"
+    } ]
+  },
+  "MRmWEoO5t9WBmdqvTcqemV0SNQD3" : {
+    "bankAmount" : 930,
+    "budgets" : [ {
+      "allocated" : 200,
+      "name" : "Food",
+      "remaining" : 140
+    }, {
+      "allocated" : 250,
+      "name" : "Entertainment",
+      "remaining" : 240
+    } ],
+    "daySpend" : 70,
+    "lowBankWarning" : 80,
+    "monthSpend" : 70,
+    "projectedSpend" : 380,
+    "targetSaving" : 150,
+    "transactions" : [ {
+      "amount" : 1000,
+      "credit" : true,
+      "dateTime" : {
+        "day" : 10,
+        "month" : 5,
+        "year" : 2018
+      }
+    }, {
+      "amount" : 50,
+      "budget" : {
+        "allocated" : 200,
+        "name" : "Food",
+        "remaining" : 150
+      },
+      "credit" : false,
+      "dateTime" : {
+        "day" : 9,
+        "month" : 4,
+        "year" : 2018
+      }
+    }, {
+      "amount" : 10,
+      "budget" : {
+        "allocated" : 250,
+        "name" : "Entertainment",
+        "remaining" : 240
+      },
+      "credit" : false,
+      "dateTime" : {
+        "day" : 10,
+        "month" : 5,
+        "year" : 2018
+      }
+    }, {
+      "amount" : 10,
+      "budget" : {
+        "allocated" : 200,
+        "name" : "Food",
+        "remaining" : 140
+      },
+      "credit" : false,
+      "dateTime" : {
+        "day" : 10,
+        "month" : 5,
+        "year" : 2018
+      }
+    } ],
+    "yearEarn" : 1000,
+    "yearSpend" : 70
+  }
+}
