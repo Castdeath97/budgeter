@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Budgeter</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="login_button_text">Log In</string>
+    <string name="login_email_hint">Email Address</string>
+    <string name="login_password_hint">User Password</string>
+    <string name="about_title">About</string>
+    <string name="home_title">Home</string>
+    <string name="reports_title">Reports</string>
+    <string name="articles_title">Articles</string>
+    <string name="budget_title">Budgets</string>
+    <string name="contacts_title">Contacts</string>
+    <string name="settings_title">Settings</string>
+    <string name="about_content">Budgeter is an App developed as an CSC3123 assignment
+                                 Budgeter is a budgeting app developed to offer help
+                                 to Students to help them start managing money wisely</string>
+    <string name="contacts_introduction">This page lists useful webpages and contacts to help you in getting started with managing money.</string>
+
+
+
+    <!-- contacts content -->
+
+    <string name="contacts_undergrad_fees_website_heading">Undergrad Finance</string>
+    <string name="contacts_support_website_heading">Financial Support Team</string>
+    <string name="contacts_acco_website_heading">Accommodation Help</string>
+    <string name="contacts_postgrad_fees_website_heading">Postgraduate Finance</string>
+    <string name="contacts_financal_support_website_heading">Student Financial Support Fund</string>
+    <string name="contacts_financal_assist_website_heading">Student Assist Fund</string>
+
+
+    <string name="contacts_undergrad_fees_website_content">
+        http://www.ncl.ac.uk/undergraduate/finance/</string>
+
+    <string name="contacts_support_website_content">
+        http://www.ncl.ac.uk/students/wellbeing/finance/</string>
+
+    <string name="contacts_acco_website_content">http://www.ncl.ac.uk/accommodation/</string>
+    <string name="contacts_postgrad_fees_website_content">
+        http://www.ncl.ac.uk/postgraduate/finance/</string>
+
+    <string name="contacts_financal_support_content">
+        http://www.ncl.ac.uk/students/wellbeing/finance/hardship/studentfinancialsupportfund/overview.htm
+    </string>
+
+
+    <string name="contacts_financal_assist_content">
+        http://www.ncl.ac.uk/students/wellbeing/finance/hardship/financialassistancefund/overview.htm
+    </string>
+
+
+
+    <string name="home_transaction_button_title">Add Transaction</string>
+    <string name="record_transaction_button_text">Record Transaction</string>
+    <string name="record_transaction_activity_name">Record a Transaction</string>
+    <string name="record_transaction_switch_debit_text">Debit</string>
+    <string name="record_transaction_switch_credit_text">Credit</string>
+    <string name="budget_button_new">Add a new Budget</string>
+    <string name="new_budget_button_text">Save Budget</string>
+    <string name="reset_budget_button_text">Reset Budget</string>
+    <string name="delete_budget_button_text">Delete Budget</string>
+    <string name="new_budget_title">New Budget</string>
+    <string name="edit_budget_title">Edit Budget</string>
+    <string name="budget_amount_hint">Transaction value</string>
+    <string name="new_budget_name_hint">Budget name</string>
+    <string name="new_budget_allocated_hint">Currency allocated</string>
+    <string name="db_error_text">The read failed:</string>
+    <string name="budget_list_name">%1$s</string>
+    <string name="budget_list_allocated">Allocated:&#032;%1$.2f</string>
+    <string name="article_list_title">%1$s</string>
+    <string name="article_list_author">Author:&#032;%1$s</string>
+    <string name="budget_list_remaining">Remaining:&#032;%1$.2f</string>
+    <string name="budget_already_exists">A budget with that name already exists</string>
+    <string name="empty_field_error">A field is empty</string>
+    <string name="projected_spending_heading">Projected Spending</string>
+    <string name="home_day_spending_heading">Today\'s Spending</string>
+    <string name="bank_heading">Bank Amount</string>
+    <string name="report_projected_savings_heading">Projected Savings</string>
+    <string name="report_month_spending_heading">Month\'s Spending</string>
+    <string name="report_year_spending_Earning_heading">Yearly Spending VS Yearly Earning</string>
+    <string name="low_budget_warn">Warning low bank!!!</string>
+    <string name="saving_target_warn">Saving target will be missed under current budget!!!</string>
+    <string name="settings_save_button_text">Save Settings</string>
+    <string name="settings_saving_target_heading">Saving Target</string>
+    <string name="settings_low_bank_warn_heading">Low Bank Warning</string>
+    <string name="login_wrong_combination_error">Wrong combination</string>
+    <string name="transaction_no_budget_error">No budget is setup, set a budget</string>
+</resources>

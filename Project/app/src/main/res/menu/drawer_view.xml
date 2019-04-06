@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_people_24dp"
+            android:title="@string/about_title" />
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_24dp"
+            android:title="@string/home_title" />
+        <item
+            android:id="@+id/nav_reports"
+            android:icon="@drawable/ic_insert_chart_24dp"
+            android:title="@string/reports_title" />
+        <item
+            android:id="@+id/nav_articles"
+            android:icon="@drawable/ic_library_books_24dp"
+            android:title="@string/articles_title"/>
+
+        <item
+            android:id="@+id/nav_budget"
+            android:icon="@drawable/ic_attach_money_24dp"
+            android:title="@string/budget_title" />
+
+        <item
+            android:id="@+id/nav_contacts"
+            android:icon="@drawable/ic_perm_contact_calendar_24dp"
+            android:title="@string/contacts_title"/>
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon= "@drawable/ic_build_24dp"
+            android:title="@string/settings_title"/>
+    </group>
+</menu>
